@@ -13,19 +13,17 @@ public class MinDepOfBT {
         while (!queue.isEmpty()) {
             TreeNode current = queue.poll();
             if (current == null) {
-                if (!queue.isEmpty()) {
-                    level++;
-                    queue.offer(null);
-                }
-
-            } else {
-                if (current.left == null && current.right == null)
-                    return level;
-                if (current.left != null)
-                    queue.offer(current.left);
-                if (current.right != null)
-                    queue.offer(current.right);
+                level++;
+                queue.offer(null);
+                continue;
             }
+            if (current.left == null && current.right == null)
+                return level;
+            if (current.left != null)
+                queue.offer(current.left);
+            if (current.right != null)
+                queue.offer(current.right);
+
         }
         return level;
     }
