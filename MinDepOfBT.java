@@ -5,7 +5,7 @@ public class MinDepOfBT {
     public int minDepth(TreeNode root) {
         int level = 1;
         if (root == null) {
-            return -1;
+            return 0;
         }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
